@@ -78,9 +78,9 @@ class Player:
             surface.blit(image,(self.x[i],self.y[i])) 
  
 class Game:
-    def isCollision(self,x1,y1,x2,y2,bsize):
-        if x1 >= x2 and x1 <= x2 + bsize:
-            if y1 >= y2 and y1 <= y2 + bsize:
+    def isCollision(self, x1, y1, x2, y2, bsize):
+        if x1 >= x2 and x1 <= x2 + bsize-1:
+            if y1 >= y2 and y1 <= y2 + bsize-1:
                 return True
         return False
  
@@ -115,7 +115,11 @@ class App:
  
     def on_loop(self):
         self.player.update()
- 
+
+        # print('X:', self.player.x[0])
+        # print('Y:', self.player.y[0])
+        # print('----------------------')
+
         # does snake eat apple?
         for i in range(0,self.player.length):
             if self.game.isCollision(self.apple.x,self.apple.y,self.player.x[i], self.player.y[i],44):
@@ -127,10 +131,33 @@ class App:
         # does snake collide with itself?
         for i in range(2,self.player.length):
             if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[i], self.player.y[i],40):
-                print("You lose! Collision: ")
+                print("Collision: ")
                 print("x[0] (" + str(self.player.x[0]) + "," + str(self.player.y[0]) + ")")
                 print("x[" + str(i) + "] (" + str(self.player.x[i]) + "," + str(self.player.y[i]) + ")")
                 exit(0)
+
+        # Left side collision check.
+        if self.game.isCollision(self.player.x[0],self.player.y[0], -44, self.player.y[0], 44):
+          print("Collision left side:", self.player.x[0], ',', self.player.y[0])
+          exit(0)
+
+        # Right side collision check.
+        if self.game.isCollision(self.player.x[0], self.player.y[0], 792, self.player.y[0], 44):
+          print("Collision right side:", self.player.x[0], ',', self.player.y[0])
+          exit(0)
+
+        # Top side collision check.
+        if self.game.isCollision(self.player.x[0], self.player.y[0], self.player.x[0], -44, 44):
+          print("Collision top side:", self.player.x[0], ',', self.player.y[0])
+          exit(0)
+
+        # Bottom side collision check.
+        if self.game.isCollision(self.player.x[0], self.player.y[0], self.player.x[0], 792, 44):
+          print("Collision bottom side:", self.player.x[0], ',', self.player.y[0])
+          exit(0)
+
+
+
  
         pass
  
