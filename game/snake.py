@@ -87,7 +87,7 @@ class Game:
 class App:
  
     windowWidth = 800
-    windowHeight = 600
+    windowHeight = 800
     player = 0
     apple = 0
  
@@ -106,8 +106,8 @@ class App:
  
         pygame.display.set_caption('Pygame pythonspot.com example')
         self._running = True
-        self._image_surf = pygame.image.load("block.jpg").convert()
-        self._apple_surf = pygame.image.load("block.jpg").convert()
+        self._image_surf = pygame.image.load("assets/snake.png").convert()
+        self._apple_surf = pygame.image.load("assets/apple.png").convert()
  
     def on_event(self, event):
         if event.type == QUIT:
