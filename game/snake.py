@@ -62,15 +62,19 @@ class Player:
  
  
     def moveRight(self):
+      if self.direction is not 1:
         self.direction = 0
  
     def moveLeft(self):
+      if self.direction is not 0:
         self.direction = 1
  
     def moveUp(self):
+      if self.direction is not 3:
         self.direction = 2
  
     def moveDown(self):
+      if self.direction is not 2:
         self.direction = 3 
  
     def draw(self, surface, image):
