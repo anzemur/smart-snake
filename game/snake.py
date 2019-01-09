@@ -5,6 +5,10 @@ from random import randint
 import pygame
 import time
  
+
+WINDOW_W = 880
+WINDOW_H = 880
+
 class Apple:
     x = 0
     y = 0
@@ -90,8 +94,8 @@ class Game:
  
 class App:
  
-    windowWidth = 800
-    windowHeight = 800
+    windowWidth = WINDOW_W
+    windowHeight = WINDOW_H
     player = 0
     apple = 0
  
@@ -108,7 +112,7 @@ class App:
         pygame.init()
         self._display_surf = pygame.display.set_mode((self.windowWidth,self.windowHeight), pygame.HWSURFACE)
  
-        pygame.display.set_caption('Pygame pythonspot.com example')
+        pygame.display.set_caption('Smart snake')
         self._running = True
         self._image_surf = pygame.image.load("assets/snake.png").convert()
         self._apple_surf = pygame.image.load("assets/apple.png").convert()
@@ -120,9 +124,9 @@ class App:
     def on_loop(self):
         self.player.update()
 
-        # print('X:', self.player.x[0])
-        # print('Y:', self.player.y[0])
-        # print('----------------------')
+        print('X:', self.player.x[0])
+        print('Y:', self.player.y[0])
+        print('----------------------')
 
         # does snake eat apple?
         for i in range(0,self.player.length):
@@ -146,7 +150,7 @@ class App:
           exit(0)
 
         # Right side collision check.
-        if self.game.isCollision(self.player.x[0], self.player.y[0], 792, self.player.y[0], 44):
+        if self.game.isCollision(self.player.x[0], self.player.y[0], WINDOW_W, self.player.y[0], 44):
           print("Collision right side:", self.player.x[0], ',', self.player.y[0])
           exit(0)
 
@@ -156,7 +160,7 @@ class App:
           exit(0)
 
         # Bottom side collision check.
-        if self.game.isCollision(self.player.x[0], self.player.y[0], self.player.x[0], 792, 44):
+        if self.game.isCollision(self.player.x[0], self.player.y[0], self.player.x[0], WINDOW_H, 44):
           print("Collision bottom side:", self.player.x[0], ',', self.player.y[0])
           exit(0)
 
