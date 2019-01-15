@@ -2,6 +2,7 @@
 
 from pygame.locals import *
 from random import randint
+# from snake_agent import snakeAgent
 import pygame
 import time
  
@@ -93,7 +94,6 @@ class Game:
         return False
  
 class App:
- 
     windowWidth = WINDOW_W
     windowHeight = WINDOW_H
     player = 0
@@ -130,7 +130,7 @@ class App:
 
         # does snake eat apple?
         for i in range(0,self.player.length):
-            if self.game.isCollision(self.apple.x,self.apple.y,self.player.x[i], self.player.y[i],44):
+            if self.game.isCollision(self.apple.x, self.apple.y, self.player.x[i], self.player.y[i], 44):
                 self.apple.x = randint(2,9) * 44
                 self.apple.y = randint(2,9) * 44
                 self.player.length = self.player.length + 1
@@ -181,8 +181,16 @@ class App:
     def on_execute(self):
         if self.on_init() == False:
             self._running = False
- 
+
+        # agent  = snakeAgent()
+
+       
         while( self._running ):
+          
+            # state = agent.getState(self.player, self.apple, self)
+            # print(state)
+  
+
             pygame.event.pump()
             keys = pygame.key.get_pressed() 
  
