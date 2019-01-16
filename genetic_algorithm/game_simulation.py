@@ -1,17 +1,24 @@
 import random
 
+import time
 import numpy as np
+
+import contextlib
+with contextlib.redirect_stdout(None):
+    import pygame
 
 from copy import copy
 
 class SnakeGame:
 
-    def __init__(self,neural_network,size=(20,20),max_steps=1000):
+    def __init__(self,neural_network,size=(20,20),max_steps=2000):
         self.size = size
         self.max_steps = max_steps
         self.neural_network = neural_network
         self.fitness = 0
 
+        self.window_width = self.window_height = 880
+        self.step = self.window_height / size[0]
         # snake is a list of coordinates where the of it is
         self.snake = self.init_snake()
         self.food = [4,9]
@@ -24,13 +31,21 @@ class SnakeGame:
 
 
 
-    def play_game(self):
+    def play_game(self,gui=False):
 
         fitness = 0.
         previous_direction = 0
 
+        if gui:
+            self.on_init()
+
         for _ in range(self.max_steps):
 
+            if gui:
+                pygame.event.pump()
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_q]:
+                    self.on_cleanup()
             # check if we are blocked in any directions and get the direction vectors of head of the snake and the apple
             front_blocked, left_blocked, right_blocked = self.blocked_directions()
             apple_direction_vector, snake_direction_vector = self.direction_vectors()
@@ -65,8 +80,11 @@ class SnakeGame:
             else:
                 fitness -= 1.5
 
+            if gui:
+                self.on_render()
+                time.sleep(50.0 / 1000.0)
             # print(f"Direction: {self.direction} | snake: {self.snake}")
-
+        self.on_cleanup()
         return fitness
 
 
@@ -163,6 +181,58 @@ class SnakeGame:
                 self.direction == 2 and self.snake[0][0] == self.size[0] - 1 or
                 self.direction == 3 and self.snake[0][1] == self.size[1] - 1 or
                 self.new_head_pos() in self.snake)
+
+    def draw_snake(self,surface,image):
+        head = self._snake_head_up
+        if self.direction == 0:
+            head = self._snake_head_left
+        elif self.direction == 1:
+            head = self._snake_head_up
+        elif self.direction == 2:
+            head = self._snake_head_right
+        elif self.direction == 3:
+            head = self._snake_head_down
+
+        surface.blit(head, (self.snake[0][0] * self.step, self.snake[0][1] * self.step))
+
+        for i in range(1,len(self.snake)):
+            surface.blit(image,(self.snake[i][0] * self.step,self.snake[i][1] * self.step))
+
+    def draw_apple(self,surface,image):
+        surface.blit(image, (self.food[0] * self.step, self.food[1] * self.step))
+
+    def on_init(self):
+        pygame.init()
+        pygame.font.init()
+        self.myfont = pygame.font.SysFont('Italic', 30)
+        self._display_surf = pygame.display.set_mode((self.window_width, self.window_height), pygame.HWSURFACE)
+
+        pygame.display.set_caption('Smart snake')
+        self._running = True
+        self._image_surf = pygame.image.load("../game/assets/snake.png").convert()
+        self._apple_surf = pygame.image.load("../game/assets/apple.png").convert()
+        self._snake_head_up = pygame.image.load("../game/assets/snake_head_up.png").convert()
+        self._snake_head_right = pygame.image.load("../game/assets/snake_head_right.png").convert()
+        self._snake_head_down = pygame.image.load("../game/assets/snake_head_down.png").convert()
+        self._snake_head_left = pygame.image.load("../game/assets/snake_head_left.png").convert()
+
+
+    def on_event(self, event):
+        if event.type == pygame.QUIT:
+            self._running = False
+
+    def on_render(self):
+        self._display_surf.fill((0, 0, 0))
+        self.draw_snake(self._display_surf,self._image_surf)
+        self.draw_apple(self._display_surf, self._apple_surf)
+        textsurface = self.myfont.render(
+            'Score: ' + str(len(self.snake) - 2),
+            True, (255, 255, 255))
+        self._display_surf.blit(textsurface, (3, 3))
+        pygame.display.flip()
+
+    def on_cleanup(self):
+        pygame.quit()
 
 
 

@@ -10,9 +10,12 @@ from concurrent.futures import ProcessPoolExecutor
 
 
 POPULATION_SIZE = 100
-N_PARENTS = 10
-MUTATION_PROB = 0.1
-ITERATIONS = 500
+N_PARENTS = 12
+MUTATION_PROB = 0.07
+ITERATIONS = 700
+
+best_score = 0
+best_nn = None
 
 def limit_cpu():
     p = psutil.Process(os.getpid())
@@ -28,17 +31,27 @@ def fitness(population):
     return pop_fit_tuple
 
 def single_nn_fitness(nn):
-    limit_cpu()
+    # limit_cpu()
     return SnakeGame(nn).play_game()
 
-def selection(pop_fit_tuple):
+def selection(pop_fit_tuple,old_best_score):
     pop_fit_tuple = sorted(pop_fit_tuple,key=lambda x: x[1],reverse=True)
-    return [nn for nn,fit in pop_fit_tuple[:N_PARENTS]]
+    best_nn = None
+    best_score = -100
+    if(pop_fit_tuple[0][1] > old_best_score):
+        best_score = pop_fit_tuple[0][1]
+        best_nn = pop_fit_tuple[0][0]
+    return [nn for nn,fit in pop_fit_tuple[:N_PARENTS]],best_score,best_nn
 
 # parents is a list of of neural networks
-def crossover(parents):
+def crossover(parents,best_nn):
     #elitism -> keep the best fit agent in the population
-    offsprings = [parents[0]]
+    if best_nn is not None:
+        offsprings = [best_nn]
+        offset = 1
+    else:
+        offsprings = []
+        offset = 0
 
     for _ in range(POPULATION_SIZE - 1):
         # select two random parents
@@ -50,9 +63,10 @@ def crossover(parents):
 
         # perform 2-point crossover
         fold_point_1 = random.randint(3,int(WEIGHTS_ROW_SIZE / 2))
-        fold_point_2 = random.randint(fold_point_1 + 3,WEIGHTS_ROW_SIZE)
+        # fold_point_2 = random.randint(fold_point_1 + 3,WEIGHTS_ROW_SIZE)
 
-        offspring = np.vstack((p1[:fold_point_1],p2[fold_point_1:fold_point_2],p1[fold_point_2:]))
+        # offspring = np.vstack((p1[:fold_point_1],p2[fold_point_1:fold_point_2],p1[fold_point_2:]))
+        offspring = np.vstack((p1[:fold_point_1],p2[fold_point_1:]))
 
         # mutate offspring and create the network again
         offsprings.append(NeuralNetwork(weights=mutation(offspring)[0]))
