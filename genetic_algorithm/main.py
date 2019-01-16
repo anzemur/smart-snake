@@ -21,18 +21,21 @@ def learn_snake_nn():
         if new_score > best_score:
             best_score = new_score
             best_nn = new_best_nn
+            SnakeGame(best_nn,max_steps=1000000).play_game(gui=True)
 
         best_of_generation_tup = sorted(population_fitness_tuples,key=lambda x: x[1],reverse=True)[0]
 
         # play the game with the best of generation
-        if best_of_generation_tup[1] > 50:
-            SnakeGame(best_of_generation_tup[0]).play_game(gui=True)
+        # if best_of_generation_tup[1] > 400:
+        #     SnakeGame(best_of_generation_tup[0]).play_game(gui=True)
 
         print(f"Iteration {i}: Best fitness for this generation: {best_of_generation_tup[1]}, Best so far: {best_score}")
 
         #perform crossover to get the new population
         population = ga.crossover(parents,best_nn)
 
+    while True:
+        SnakeGame(best_nn, max_steps=1000000).play_game(gui=True)
 
 
 if __name__ == '__main__':

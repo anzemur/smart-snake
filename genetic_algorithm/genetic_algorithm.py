@@ -12,7 +12,7 @@ from concurrent.futures import ProcessPoolExecutor
 POPULATION_SIZE = 100
 N_PARENTS = 12
 MUTATION_PROB = 0.07
-ITERATIONS = 700
+ITERATIONS = 400
 
 best_score = 0
 best_nn = None

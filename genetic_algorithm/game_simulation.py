@@ -11,7 +11,7 @@ from copy import copy
 
 class SnakeGame:
 
-    def __init__(self,neural_network,size=(20,20),max_steps=2000):
+    def __init__(self,neural_network,size=(20,20),max_steps=3000):
         self.size = size
         self.max_steps = max_steps
         self.neural_network = neural_network
@@ -45,7 +45,7 @@ class SnakeGame:
                 pygame.event.pump()
                 keys = pygame.key.get_pressed()
                 if keys[pygame.K_q]:
-                    self.on_cleanup()
+                    break
             # check if we are blocked in any directions and get the direction vectors of head of the snake and the apple
             front_blocked, left_blocked, right_blocked = self.blocked_directions()
             apple_direction_vector, snake_direction_vector = self.direction_vectors()
@@ -226,7 +226,7 @@ class SnakeGame:
         self.draw_snake(self._display_surf,self._image_surf)
         self.draw_apple(self._display_surf, self._apple_surf)
         textsurface = self.myfont.render(
-            'Score: ' + str(len(self.snake) - 2),
+            'Score: ' + str(len(self.snake) - 2) + " | Press q to stop.",
             True, (255, 255, 255))
         self._display_surf.blit(textsurface, (3, 3))
         pygame.display.flip()
