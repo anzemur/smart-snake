@@ -9,17 +9,23 @@ import numpy as np
 def learn_snake_nn():
     # initialize the population
     population = [NeuralNetwork() for i in range(POPULATION_SIZE)]
-
+    best_score = 0
+    best_nn = None
     for i in range(ITERATIONS):
         # calculate the fitness of generation
         population_fitness_tuples = ga.fitness(population)
 
-        print(f"Iteration {i}: Best fitness: {sorted(population_fitness_tuples,key=lambda x: x[1],reverse=True)[0][1]}")
         # perform selection
-        parents = ga.selection(population_fitness_tuples)
+        parents,new_score,new_best_nn = ga.selection(population_fitness_tuples,best_score)
+
+        if new_score > best_score:
+            best_score = new_score
+            best_nn = new_best_nn
+
+        print(f"Iteration {i}: Best fitness for this generation: {sorted(population_fitness_tuples,key=lambda x: x[1],reverse=True)[0][1]}, Best so far: {best_score}")
 
         #perform crossover to get the new population
-        population = ga.crossover(parents)
+        population = ga.crossover(parents,best_nn)
 
 
 
