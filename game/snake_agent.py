@@ -9,7 +9,7 @@ RIGHT = 2
 class snakeAgent():
   learingRate = 0.1
   discountFactor = 0.8
-  greedyEpsilon = 0.05
+  greedyEpsilon = 1
   QTable = {}
 
   # Get current state of the agent.
@@ -114,13 +114,15 @@ class snakeAgent():
     if state != futureState:
       # Reward -1 if snake collided.
       if (state[0] == 0 and action == FORWARD) or (state[1] == 0 and action == LEFT) or (state[2] == 0 and action == RIGHT):
-        reward = -2
+        reward = -1
       
       # Reward +1 if snake moved towards apple.
       if (state[0] == 1 and action == FORWARD and state[3] == 1) or (state[1] == 1 and action == LEFT and state[4] == 1) or (state[2] == 1 and action == RIGHT and state[5] == 1):
         reward = 1
-      else:
-        reward = -0.5
+      # if (state[0] == 1 and action == FORWARD and state[3] == 1):
+      #   reward += 10
+      # else:
+      #   reward = -1
                     
       # Get the optimal learned future value for future state.
       optimalLearnedValue = max(self.getQ(futureState, FORWARD), self.getQ(futureState, LEFT), self.getQ(futureState, RIGHT))
@@ -140,6 +142,10 @@ class snakeAgent():
 
     # Include epsilon-greedy policy to ensure learing and exploration.
     if random() < self.greedyEpsilon:
+      # if len(self.QTable) > 30:
+      #   return qualityActions[0].action
+      # else:
+      self.greedyEpsilon *= 0.99
       return qualityActions[randint(0, 2)].action
     else:
       return qualityActions[0].action

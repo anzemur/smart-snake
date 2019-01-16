@@ -125,6 +125,10 @@ class App:
     windowHeight = WINDOW_H
     player = 0
     apple = 0
+    myfont = None
+    score = 0
+    highScore = 0
+    iterations = 1
  
     def __init__(self):
         self._running = True
@@ -136,6 +140,11 @@ class App:
         self.apple = Apple(5,5)
 
     def restart(self):
+      if self.score > self.highScore:
+        self.highScore = self.score
+    
+      self.score = 0
+      self.iterations += 1
       self.player.reset()
       self._running = True
       self._display_surf = None
@@ -146,6 +155,8 @@ class App:
 
     def on_init(self):
         pygame.init()
+        pygame.font.init()
+        self.myfont = pygame.font.SysFont('Italic', 30)
         self._display_surf = pygame.display.set_mode((self.windowWidth,self.windowHeight), pygame.HWSURFACE)
  
         pygame.display.set_caption('Smart snake')
@@ -167,9 +178,10 @@ class App:
         # does snake eat apple?
         for i in range(0,self.player.length):
             if self.game.isCollision(self.apple.x, self.apple.y, self.player.x[i], self.player.y[i], 44):
-                self.apple.x = randint(2,9) * 44
-                self.apple.y = randint(2,9) * 44
+                self.apple.x = randint(2,14) * 44
+                self.apple.y = randint(2,14) * 44
                 self.player.length = self.player.length + 1
+                self.score += 1
  
  
         # does snake collide with itself?
@@ -227,6 +239,8 @@ class App:
         self._display_surf.fill((0,0,0))
         self.player.draw(self._display_surf, self._image_surf)
         self.apple.draw(self._display_surf, self._apple_surf)
+        textsurface = self.myfont.render('Highscore: ' + str(self.highScore) + ' Iterations: ' + str(self.iterations) + ' Score: ' + str(self.score), True, (255,255,255))
+        self._display_surf.blit(textsurface,(3,3))
         pygame.display.flip()
  
     def on_cleanup(self):
@@ -238,10 +252,6 @@ class App:
 
       if self.gameMode == HUMAN:
         while( self._running ):
-          
-          state = agent.getState(self.player, self.apple, self)
-          print(state)
-
 
           pygame.event.pump()
           keys = pygame.key.get_pressed() 
