@@ -209,12 +209,12 @@ class SnakeGame:
 
         pygame.display.set_caption('Smart snake')
         self._running = True
-        self._image_surf = pygame.image.load("../game/assets/snake.png").convert()
-        self._apple_surf = pygame.image.load("../game/assets/apple.png").convert()
-        self._snake_head_up = pygame.image.load("../game/assets/snake_head_up.png").convert()
-        self._snake_head_right = pygame.image.load("../game/assets/snake_head_right.png").convert()
-        self._snake_head_down = pygame.image.load("../game/assets/snake_head_down.png").convert()
-        self._snake_head_left = pygame.image.load("../game/assets/snake_head_left.png").convert()
+        self._image_surf = pygame.image.load("../q_learning_algorithm/assets/snake.png").convert()
+        self._apple_surf = pygame.image.load("../q_learning_algorithm/assets/apple.png").convert()
+        self._snake_head_up = pygame.image.load("../q_learning_algorithm/assets/snake_head_up.png").convert()
+        self._snake_head_right = pygame.image.load("../q_learning_algorithm/assets/snake_head_right.png").convert()
+        self._snake_head_down = pygame.image.load("../q_learning_algorithm/assets/snake_head_down.png").convert()
+        self._snake_head_left = pygame.image.load("../q_learning_algorithm/assets/snake_head_left.png").convert()
 
 
     def on_event(self, event):
