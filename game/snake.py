@@ -12,6 +12,7 @@ WINDOW_H = 880
 
 HUMAN = 0
 AGENT_Q = 1
+NEURAL_NETWORK = 2
 
 class Apple:
     x = 0
@@ -247,68 +248,77 @@ class App:
         pygame.quit()
  
     def on_execute(self):
-      if self.on_init() == False:
-          self._running = False
+        if self.on_init() == False:
+            self._running = False
 
-      if self.gameMode == HUMAN:
-        while( self._running ):
+        if self.gameMode == HUMAN:
+            while (self._running):
 
-          pygame.event.pump()
-          keys = pygame.key.get_pressed() 
-          if (keys[K_RIGHT]):
-              self.player.moveRight()
-          if (keys[K_LEFT]):
-              self.player.moveLeft()
-          if (keys[K_UP]):
-              self.player.moveUp()
-          if (keys[K_DOWN]):
-              self.player.moveDown()
-          if (keys[K_ESCAPE]):
-              self._running = False
-          self.on_loop()
-          self.on_render()
-          time.sleep (50.0 / 1000.0)
-        self.on_cleanup()
-      
-      elif self.gameMode == AGENT_Q:
-        while(self._running):
-          pygame.event.pump()
+                pygame.event.pump()
+                keys = pygame.key.get_pressed()
+                if (keys[K_RIGHT]):
+                    self.player.moveRight()
+                if (keys[K_LEFT]):
+                    self.player.moveLeft()
+                if (keys[K_UP]):
+                    self.player.moveUp()
+                if (keys[K_DOWN]):
+                    self.player.moveDown()
+                if (keys[K_ESCAPE]):
+                    self._running = False
+                self.on_loop()
+                self.on_render()
+                time.sleep(50.0 / 1000.0)
+            self.on_cleanup()
 
-          state = agent.getState(self.player, self.apple, self)
-          action = agent.getAction(state)
+        elif self.gameMode == AGENT_Q:
+            while (self._running):
+                pygame.event.pump()
 
-          if self.player.direction == 0:
-            if action == 1:
-              self.player.moveUp()
-            elif action == 2:
-              self.player.moveDown()
-          
-          elif self.player.direction == 1:
-            if action == 1:
-              self.player.moveDown()
-            elif action == 2:
-              self.player.moveUp()
-          
-          elif self.player.direction == 2:
-            if action == 1:
-              self.player.moveLeft()
-            elif action == 2:
-              self.player.moveRight()
+                state = agent.getState(self.player, self.apple, self)
+                action = agent.getAction(state)
 
-          elif self.player.direction == 3:
-            if action == 1:
-              self.player.moveRight()
-            elif action == 2:
-              self.player.moveLeft()
-            
-          newState = agent.getState(self.player, self.apple, self)
-          agent.rewardPlayer(state, newState, action)
+                if self.player.direction == 0:
+                    if action == 1:
+                        self.player.moveUp()
+                    elif action == 2:
+                        self.player.moveDown()
 
-          print(state)
+                elif self.player.direction == 1:
+                    if action == 1:
+                        self.player.moveDown()
+                    elif action == 2:
+                        self.player.moveUp()
 
-          self.on_loop()
-          self.on_render()
-          time.sleep (5.0 / 1000.0)
+                elif self.player.direction == 2:
+                    if action == 1:
+                        self.player.moveLeft()
+                    elif action == 2:
+                        self.player.moveRight()
+
+                elif self.player.direction == 3:
+                    if action == 1:
+                        self.player.moveRight()
+                    elif action == 2:
+                        self.player.moveLeft()
+
+                newState = agent.getState(self.player, self.apple, self)
+                agent.rewardPlayer(state, newState, action)
+
+                print(state)
+
+                self.on_loop()
+                self.on_render()
+                time.sleep(5.0 / 1000.0)
+        elif self.gameMode == NEURAL_NETWORK:
+            while (self._running):
+                pygame.event.pump()
+
+
+
+                self.on_loop()
+                self.on_render()
+                time.sleep(5.0 / 1000.0)
 
  
 if __name__ == "__main__" :

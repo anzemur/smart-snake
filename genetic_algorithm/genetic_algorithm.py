@@ -9,8 +9,8 @@ from concurrent.futures import ProcessPoolExecutor
 
 
 
-POPULATION_SIZE = 150
-N_PARENTS = 15
+POPULATION_SIZE = 100
+N_PARENTS = 12
 MUTATION_PROB = 0.07
 ITERATIONS = 700
 
@@ -31,7 +31,7 @@ def fitness(population):
     return pop_fit_tuple
 
 def single_nn_fitness(nn):
-    limit_cpu()
+    # limit_cpu()
     return SnakeGame(nn).play_game()
 
 def selection(pop_fit_tuple,old_best_score):
