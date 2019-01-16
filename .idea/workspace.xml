@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f391f355-d8fe-4368-8576-aa76b716abed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/genetic_algorithm/game_simulation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/smart-snake.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/smart-snake.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/.idea/game.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/genetic_algorithm/game_simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/genetic_algorithm/game_simulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/genetic_algorithm/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/genetic_algorithm/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/genetic_algorithm/neural_network.py" beforeDir="false" afterPath="$PROJECT_DIR$/genetic_algorithm/neural_network.py" afterDir="false" />
     </list>
@@ -21,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/smart_snake$Main_Genetic_algs.coverage" NAME="Main_Genetic_algs Coverage Results" MODIFIED="1547573391783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/genetic_algorithm" />
+    <SUITE FILE_PATH="coverage/smart_snake$Main_Genetic_algs.coverage" NAME="Main_Genetic_algs Coverage Results" MODIFIED="1547646443897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/genetic_algorithm" />
     <SUITE FILE_PATH="coverage/smart_snake$Game.coverage" NAME="Game Coverage Results" MODIFIED="1547507234385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/game" />
   </component>
   <component name="FUSProjectUsageTrigger">
@@ -38,104 +32,107 @@
     <session id="-1311603560">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="py" value="18" />
+          <entry key="py" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="18" />
+          <entry key="Python" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="4" />
-          <entry key="py" value="5048" />
+          <entry key="py" value="8302" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="5048" />
+          <entry key="Python" value="8302" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54107773">
+    <splitter split-orientation="horizontal" split-proportion="0.48806366">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/genetic_algorithm/neural_network.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="362">
-                  <caret line="54" selection-start-line="54" selection-end-line="54" />
+                <state relative-caret-position="84">
+                  <caret line="48" selection-start-line="48" selection-end-line="48" />
                   <folding>
-                    <marker date="1547571611456" expanded="true" signature="598:599" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="598:600" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="598:604" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="636:637" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="636:764" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="636:826" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="1428:1896" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="1926:2810" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="2723:2810" ph="..." />
-                    <marker date="1547571611456" expanded="true" signature="2830:2839" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="76">
-                  <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                    <marker date="1547573837953" expanded="true" signature="178:183" ph="..." />
-                    <marker date="1547573837953" expanded="true" signature="366:371" ph="..." />
-                    <marker date="1547573837953" expanded="true" signature="1280:1281" ph="..." />
-                    <marker date="1547573837953" expanded="true" signature="1306:1311" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="598:599" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="598:600" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="598:604" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="636:637" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="636:764" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="636:826" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="1428:1896" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="1926:2825" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="2723:2825" ph="..." />
+                    <marker date="1547638195308" expanded="true" signature="2845:2854" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/genetic_algorithm/game_simulation.py">
+            <entry file="file://$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+                <state relative-caret-position="608">
+                  <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
                   <folding>
-                    <marker date="1547578436944" expanded="true" signature="40:41" ph="..." />
-                    <marker date="1547578436944" expanded="true" signature="40:46" ph="..." />
-                    <marker date="1547578436944" expanded="true" signature="1241:1295" ph="..." />
-                    <marker date="1547578436944" expanded="true" signature="1318:1637" ph="..." />
-                    <marker date="1547578436944" expanded="true" signature="1667:1676" ph="..." />
+                    <element signature="e#0#9#0" expanded="true" />
+                    <marker date="1547645840873" expanded="true" signature="719:720" ph="..." />
+                    <marker date="1547645840873" expanded="true" signature="747:802" ph="..." />
+                    <marker date="1547645840873" expanded="true" signature="905:910" ph="..." />
+                    <marker date="1547645840873" expanded="true" signature="1819:1820" ph="..." />
+                    <marker date="1547645840873" expanded="true" signature="1845:1850" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/genetic_algorithm/main.py">
+            <entry file="file://$USER_HOME$/Anaconda3/Lib/concurrent/futures/process.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="361">
-                  <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+                <state relative-caret-position="247">
+                  <caret line="365" column="21" selection-start-line="365" selection-start-column="21" selection-end-line="365" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/genetic_algorithm/game_simulation.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="480">
+                  <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
+                    <marker date="1547646353397" expanded="true" signature="74:75" ph="..." />
+                    <marker date="1547646353397" expanded="true" signature="74:80" ph="..." />
+                    <marker date="1547646353397" expanded="true" signature="3793:4030" ph="..." />
+                    <marker date="1547646353397" expanded="true" signature="4057:4066" ph="..." />
+                    <marker date="1547646353397" expanded="true" signature="4412:4723" ph="..." />
+                    <marker date="1547646353397" expanded="true" signature="5474:5528" ph="..." />
+                    <marker date="1547646353397" expanded="true" signature="5551:5870" ph="..." />
+                    <marker date="1547646353397" expanded="true" signature="5900:5909" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -146,6 +143,18 @@
               <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/game/snake.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1784">
+                  <caret line="147" column="32" lean-forward="true" selection-start-line="147" selection-start-column="32" selection-end-line="147" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#105#132#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -153,10 +162,12 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/genetic_algorithm/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+                <state relative-caret-position="-3">
+                  <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
+                    <marker date="1547646398152" expanded="true" signature="252:257" ph="..." />
+                    <marker date="1547646398152" expanded="true" signature="252:847" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -173,9 +184,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/genetic_algorithm/neural_network.py" />
-        <option value="$PROJECT_DIR$/genetic_algorithm/main.py" />
         <option value="$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py" />
         <option value="$PROJECT_DIR$/genetic_algorithm/game_simulation.py" />
+        <option value="$PROJECT_DIR$/genetic_algorithm/main.py" />
       </list>
     </option>
   </component>
@@ -225,7 +236,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IS/EssayScoring" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
@@ -317,14 +328,13 @@
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10015898" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10095389" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" weight="0.32925472" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23248054" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.26140156" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23025584" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.48387095" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -334,10 +344,11 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3025584" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32925472" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" weight="0.16176471" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.20667727" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -352,27 +363,29 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/genetic_algorithm/main.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="3" />
+          <line>21</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/genetic_algorithm/game_simulation.py</url>
+          <line>63</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/genetic_algorithm/game_simulation.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/1780685904/numpy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game/snake.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
-          <folding>
-            <element signature="e#105#132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/numpy/random/__init__.py">
@@ -401,6 +414,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game/snake.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1784">
+          <caret line="147" column="32" lean-forward="true" selection-start-line="147" selection-start-column="32" selection-end-line="147" selection-end-column="32" />
+          <folding>
+            <element signature="e#105#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/numpy/core/_methods.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -410,57 +436,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/genetic_algorithm/neural_network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="84">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
           <folding>
-            <marker date="1547571611456" expanded="true" signature="598:599" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="598:600" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="598:604" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="636:637" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="636:764" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="636:826" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="1428:1896" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="1926:2810" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="2723:2810" ph="..." />
-            <marker date="1547571611456" expanded="true" signature="2830:2839" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="598:599" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="598:600" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="598:604" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="636:637" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="636:764" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="636:826" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="1428:1896" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="1926:2825" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="2723:2825" ph="..." />
+            <marker date="1547638195308" expanded="true" signature="2845:2854" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/multiprocessing/spawn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/concurrent/futures/_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="574" selection-start-line="574" selection-end-line="574" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/1780685904/itertools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="421" column="6" selection-start-line="421" selection-start-column="6" selection-end-line="421" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/concurrent/futures/process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="365" column="21" selection-start-line="365" selection-start-column="21" selection-end-line="365" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/genetic_algorithm/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="-3">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1547573837953" expanded="true" signature="178:183" ph="..." />
-            <marker date="1547573837953" expanded="true" signature="366:371" ph="..." />
-            <marker date="1547573837953" expanded="true" signature="1280:1281" ph="..." />
-            <marker date="1547573837953" expanded="true" signature="1306:1311" ph="..." />
+            <marker date="1547646398152" expanded="true" signature="252:257" ph="..." />
+            <marker date="1547646398152" expanded="true" signature="252:847" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/genetic_algorithm/game_simulation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+        <state relative-caret-position="480">
+          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
           <folding>
-            <marker date="1547578436944" expanded="true" signature="40:41" ph="..." />
-            <marker date="1547578436944" expanded="true" signature="40:46" ph="..." />
-            <marker date="1547578436944" expanded="true" signature="1241:1295" ph="..." />
-            <marker date="1547578436944" expanded="true" signature="1318:1637" ph="..." />
-            <marker date="1547578436944" expanded="true" signature="1667:1676" ph="..." />
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1547646353397" expanded="true" signature="74:75" ph="..." />
+            <marker date="1547646353397" expanded="true" signature="74:80" ph="..." />
+            <marker date="1547646353397" expanded="true" signature="3793:4030" ph="..." />
+            <marker date="1547646353397" expanded="true" signature="4057:4066" ph="..." />
+            <marker date="1547646353397" expanded="true" signature="4412:4723" ph="..." />
+            <marker date="1547646353397" expanded="true" signature="5474:5528" ph="..." />
+            <marker date="1547646353397" expanded="true" signature="5551:5870" ph="..." />
+            <marker date="1547646353397" expanded="true" signature="5900:5909" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genetic_algorithm/genetic_algorithm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1547645840873" expanded="true" signature="719:720" ph="..." />
+            <marker date="1547645840873" expanded="true" signature="747:802" ph="..." />
+            <marker date="1547645840873" expanded="true" signature="905:910" ph="..." />
+            <marker date="1547645840873" expanded="true" signature="1819:1820" ph="..." />
+            <marker date="1547645840873" expanded="true" signature="1845:1850" ph="..." />
           </folding>
         </state>
       </provider>

@@ -1,20 +1,37 @@
+import os
+import psutil
 import numpy as np
 import random
 
+from game_simulation import SnakeGame
 from neural_network import WEIGHTS_ROW_SIZE, NeuralNetwork
+from concurrent.futures import ProcessPoolExecutor
 
 
-POPULATION_SIZE = 50
+
+POPULATION_SIZE = 100
 N_PARENTS = 10
 MUTATION_PROB = 0.1
+ITERATIONS = 500
 
+def limit_cpu():
+    p = psutil.Process(os.getpid())
+    p.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS)
 
 
 def fitness(population):
-    pass
+    # Spread the workload among the cores of processors to speed up processing
+    pop_fit_tuple = []
+    with ProcessPoolExecutor(max_workers=4) as executor:
+        for fit,nn in zip(executor.map(single_nn_fitness,population),population):
+            pop_fit_tuple.append((nn,fit))
+    return pop_fit_tuple
 
-def selection(population,fitness):
-    pop_fit_tuple = [(nn,fit) for nn,fit in zip(population,fitness)]
+def single_nn_fitness(nn):
+    limit_cpu()
+    return SnakeGame(nn).play_game()
+
+def selection(pop_fit_tuple):
     pop_fit_tuple = sorted(pop_fit_tuple,key=lambda x: x[1],reverse=True)
     return [nn for nn,fit in pop_fit_tuple[:N_PARENTS]]
 

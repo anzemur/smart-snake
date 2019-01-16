@@ -56,7 +56,7 @@ class NeuralNetwork:
 
     # outputs the direction the snake should take, -1 is left, 0 is go forward, 1 is right
     def predict_snake_direction(self,input):
-        out = self.forward_propagation(input)
+        out = self.forward_propagation(input.reshape(-1, 7))
         return np.argmax(out) - 1
 
 
