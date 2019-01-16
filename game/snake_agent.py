@@ -1,4 +1,5 @@
 from copy import copy
+from random import randint, random
 
 #Actions
 FORWARD = 0
@@ -7,7 +8,8 @@ RIGHT = 2
 
 class snakeAgent():
   learingRate = 0.1
-  discountFactor = 1
+  discountFactor = 0.8
+  greedyEpsilon = 0.05
   QTable = {}
 
   # Get current state of the agent.
@@ -105,30 +107,49 @@ class snakeAgent():
 
     return state
 
-
   def rewardPlayer(self, state, futureState, action):
+    # Set initial reward to 0.
     reward = 0
 
     if state != futureState:
       # Reward -1 if snake collided.
       if (state[0] == 0 and action == FORWARD) or (state[1] == 0 and action == LEFT) or (state[2] == 0 and action == RIGHT):
-        reward = -1
+        reward = -2
       
       # Reward +1 if snake moved towards apple.
-      if (state[0] == 1 and action == FORWARD and state[3] == 1) or (state[1] == 1 and action == 1 and state[4] == 1) or (state[2] == 1 and action == 2 and state[5] == 1):
+      if (state[0] == 1 and action == FORWARD and state[3] == 1) or (state[1] == 1 and action == LEFT and state[4] == 1) or (state[2] == 1 and action == RIGHT and state[5] == 1):
         reward = 1
+      else:
+        reward = -0.5
                     
       # Get the optimal learned future value for future state.
       optimalLearnedValue = max(self.getQ(futureState, FORWARD), self.getQ(futureState, LEFT), self.getQ(futureState, RIGHT))
-      learnedValue = self.learingRate * ( reward * self.discountFactor * optimalLearnedValue - self.getQ(state, action))
+      learnedValue = self.learingRate * ( reward + self.discountFactor * optimalLearnedValue - self.getQ(state, action))
       self.addQ(state, action, learnedValue)
 
 
+  # Gets best action for current state.
+  def getAction(self, state):
+    qualityActions = []
 
+    #Get Q values for current state.
+    for action in range(3):
+      qualityActions.append(qualityAction(action, self.getQ(state, action)))
+      
+    qualityActions.sort(key=lambda x: x.quality, reverse=True)
 
+    # Include epsilon-greedy policy to ensure learing and exploration.
+    if random() < self.greedyEpsilon:
+      return qualityActions[randint(0, 2)].action
+    else:
+      return qualityActions[0].action
+
+  # Gets learned value for given state and action from Q table.
   def getQ(self, state, action):
     tmp = copy(state)
     tmp.append(action)
+    tmp = map(str, tmp)    
+    tmp = ''.join(tmp)
 
     return self.QTable.get(tmp, 0)
 
@@ -137,6 +158,8 @@ class snakeAgent():
   def addQ(self, state, action, learnedValue):
     tmp = copy(state)
     tmp.append(action)
+    tmp = map(str, tmp)    
+    tmp = ''.join(tmp)
 
     if tmp not in self.QTable:
       self.QTable[tmp] = 0
@@ -184,3 +207,8 @@ class tmpPlayer():
     self.step = step
     self.direction = direction
     self.length = length
+
+class qualityAction():
+  def __init__(self, action, quality):
+    self.action = action
+    self.quality = quality

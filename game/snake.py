@@ -2,13 +2,16 @@
 
 from pygame.locals import *
 from random import randint
-# from snake_agent import snakeAgent
+from snake_agent import snakeAgent
 import pygame
 import time
  
 
 WINDOW_W = 880
 WINDOW_H = 880
+
+HUMAN = 0
+AGENT_Q = 1
 
 class Apple:
     x = 0
@@ -20,7 +23,11 @@ class Apple:
         self.y = y * self.step
  
     def draw(self, surface, image):
-        surface.blit(image,(self.x, self.y)) 
+        surface.blit(image,(self.x, self.y))
+
+    def reset(self,x,y):
+      self.x = x * self.step
+      self.y = y * self.step
  
  
 class Player:
@@ -42,6 +49,25 @@ class Player:
        # initial positions, no collision.
        self.x[1] = 1*44
        self.x[2] = 2*44
+
+    def reset(self):
+      self.x = [0]
+      self.y = [0]
+      self.step = 44
+      self.direction = 0
+      self.length = 3
+  
+      self.updateCountMax = 2
+      self.updateCount = 0
+
+      for i in range(0,2000):
+        self.x.append(-100)
+        self.y.append(-100)
+ 
+      # initial positions, no collision.
+      self.x[1] = 1*44
+      self.x[2] = 2*44
+
  
     def update(self):
  
@@ -94,6 +120,7 @@ class Game:
         return False
  
 class App:
+    gameMode = AGENT_Q
     windowWidth = WINDOW_W
     windowHeight = WINDOW_H
     player = 0
@@ -107,7 +134,16 @@ class App:
         self.game = Game()
         self.player = Player(3) 
         self.apple = Apple(5,5)
- 
+
+    def restart(self):
+      self.player.reset()
+      self._running = True
+      self._display_surf = None
+      self._image_surf = None
+      self._apple_surf = None
+  
+      self.on_init()
+
     def on_init(self):
         pygame.init()
         self._display_surf = pygame.display.set_mode((self.windowWidth,self.windowHeight), pygame.HWSURFACE)
@@ -142,31 +178,49 @@ class App:
                 print("Collision: ")
                 print("x[0] (" + str(self.player.x[0]) + "," + str(self.player.y[0]) + ")")
                 print("x[" + str(i) + "] (" + str(self.player.x[i]) + "," + str(self.player.y[i]) + ")")
-                exit(0)
+                
+                if self.gameMode == AGENT_Q:
+                  self.restart()
+                else:
+                  exit(0)
 
         # Left side collision check.
         if self.game.isCollision(self.player.x[0],self.player.y[0], -44, self.player.y[0], 44):
           print("Collision left side:", self.player.x[0], ',', self.player.y[0])
-          exit(0)
+
+          if self.gameMode == AGENT_Q:
+            self.restart()
+          else:
+            exit(0)
 
         # Right side collision check.
         if self.game.isCollision(self.player.x[0], self.player.y[0], WINDOW_W, self.player.y[0], 44):
           print("Collision right side:", self.player.x[0], ',', self.player.y[0])
-          exit(0)
+
+          if self.gameMode == AGENT_Q:
+            self.restart()
+          else:
+            exit(0)
+          
 
         # Top side collision check.
         if self.game.isCollision(self.player.x[0], self.player.y[0], self.player.x[0], -44, 44):
           print("Collision top side:", self.player.x[0], ',', self.player.y[0])
-          exit(0)
+          
+          if self.gameMode == AGENT_Q:
+            self.restart()
+          else:
+            exit(0)
 
         # Bottom side collision check.
         if self.game.isCollision(self.player.x[0], self.player.y[0], self.player.x[0], WINDOW_H, 44):
           print("Collision bottom side:", self.player.x[0], ',', self.player.y[0])
-          exit(0)
+          
+          if self.gameMode == AGENT_Q:
+            self.restart()
+          else:
+            exit(0)
 
-
-
- 
         pass
  
     def on_render(self):
@@ -179,42 +233,75 @@ class App:
         pygame.quit()
  
     def on_execute(self):
-        if self.on_init() == False:
-            self._running = False
+      if self.on_init() == False:
+          self._running = False
 
-        # agent  = snakeAgent()
-
-       
+      if self.gameMode == HUMAN:
         while( self._running ):
           
-            # state = agent.getState(self.player, self.apple, self)
-            # print(state)
-  
+          state = agent.getState(self.player, self.apple, self)
+          print(state)
 
-            pygame.event.pump()
-            keys = pygame.key.get_pressed() 
- 
-            if (keys[K_RIGHT]):
-                self.player.moveRight()
- 
-            if (keys[K_LEFT]):
-                self.player.moveLeft()
- 
-            if (keys[K_UP]):
-                self.player.moveUp()
- 
-            if (keys[K_DOWN]):
-                self.player.moveDown()
- 
-            if (keys[K_ESCAPE]):
-                self._running = False
- 
-            self.on_loop()
-            self.on_render()
- 
-            time.sleep (50.0 / 1000.0);
+
+          pygame.event.pump()
+          keys = pygame.key.get_pressed() 
+          if (keys[K_RIGHT]):
+              self.player.moveRight()
+          if (keys[K_LEFT]):
+              self.player.moveLeft()
+          if (keys[K_UP]):
+              self.player.moveUp()
+          if (keys[K_DOWN]):
+              self.player.moveDown()
+          if (keys[K_ESCAPE]):
+              self._running = False
+          self.on_loop()
+          self.on_render()
+          time.sleep (50.0 / 1000.0)
         self.on_cleanup()
+      
+      elif self.gameMode == AGENT_Q:
+        while(self._running):
+          pygame.event.pump()
+
+          state = agent.getState(self.player, self.apple, self)
+          action = agent.getAction(state)
+
+          if self.player.direction == 0:
+            if action == 1:
+              self.player.moveUp()
+            elif action == 2:
+              self.player.moveDown()
+          
+          elif self.player.direction == 1:
+            if action == 1:
+              self.player.moveDown()
+            elif action == 2:
+              self.player.moveUp()
+          
+          elif self.player.direction == 2:
+            if action == 1:
+              self.player.moveLeft()
+            elif action == 2:
+              self.player.moveRight()
+
+          elif self.player.direction == 3:
+            if action == 1:
+              self.player.moveRight()
+            elif action == 2:
+              self.player.moveLeft()
+            
+          newState = agent.getState(self.player, self.apple, self)
+          agent.rewardPlayer(state, newState, action)
+
+          print(state)
+
+          self.on_loop()
+          self.on_render()
+          time.sleep (5.0 / 1000.0)
+
  
 if __name__ == "__main__" :
+    agent  = snakeAgent()
     theApp = App()
     theApp.on_execute()
