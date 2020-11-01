@@ -1,4 +1,4 @@
-# Smart snake
+# Smart snake 🐍🎓
 Smart snake implementation using genetic algorithms to train the neural network which plays the snake and using reinforcement learning.
 
 ### Genetic algorithm with neural network 
